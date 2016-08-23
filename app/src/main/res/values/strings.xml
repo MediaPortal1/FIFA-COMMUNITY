@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FIFA COMMUNITY</string>
+
+    <!--NAVIGATION DRAWER-->
+    <string name="drawer_open">Open navigation</string>
+    <string name="drawer_close">Close navigation</string>
+
+    <!--MENU TITLES-->
+    <string name="menu_title_main">Main screen</string>
+
+</resources>
