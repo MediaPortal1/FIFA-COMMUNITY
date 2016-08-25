@@ -24,6 +24,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private Toolbar toolbar;
+
     private int contentResId=-1;
     private int toolbarTitle=-1;
 
@@ -32,6 +33,12 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         super.onCreate(savedInstanceState);
         initActivity();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(isDrawerOpen())closeDrawer();
     }
 
     private void initActivity() {
@@ -45,7 +52,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         viewStub.setLayoutResource(contentResId);
         viewStub.inflate();
         initViews();
-        drawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawerview);
+        drawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawerlayout);
         toolbar = (Toolbar) findViewById(R.id.navigation_toolbar);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
@@ -62,7 +69,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         drawerLayout.addDrawerListener(toggle);
         navigationView = (NavigationView) findViewById(R.id.navigation_drawerview);
         navigationView.setNavigationItemSelectedListener(this);
-        if(toolbarTitle!=-1)    getSupportActionBar().setTitle(toolbarTitle);
+        if(toolbarTitle!=-1) setTitle(toolbarTitle);
     }
 
 
@@ -106,10 +113,10 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
     protected void setContentResId(int contentResId) {
         this.contentResId = contentResId;
     }
-    protected void setTitleString(@IdRes int title){
+    protected void setTitleString(int title){
         this.toolbarTitle=title;
     }
-    protected void setContent(){};
-    protected void setToolbarTitle(){};
-    protected void initViews(){};
+    protected abstract void setContent();
+    protected abstract void setToolbarTitle();
+    protected abstract void initViews();
 }

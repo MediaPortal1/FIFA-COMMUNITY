@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">FIFA COMMUNITY</string>
 
+    <!--SDK TOOLS-->
+    <string name="facebook_app_id">1785019955104472</string>
+    <integer name="com_vk_sdk_AppId">5605387</integer>
+
     <!--NAVIGATION DRAWER-->
     <string name="drawer_open">Open navigation</string>
     <string name="drawer_close">Close navigation</string>
 
     <!--MENU TITLES-->
     <string name="menu_title_main">Main screen</string>
+
+    <!--Activity titles-->
+    <string name="title_main">Main</string>
 
 </resources>
