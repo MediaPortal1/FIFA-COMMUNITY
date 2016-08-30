@@ -23,10 +23,12 @@ public class MainActivity extends DrawerActivity{
 
     @Override
     protected void setContent() {
-        startActivity(new Intent(this, LoginActivity.class));
         setContentResId(R.layout.main_activity);
     }
-
+    @Override
+    protected void setSelectedMenuId() {
+        setSelectedMenuId("MAIN");
+    }
     @Override
     protected void setToolbarTitle() {
         setTitleString(R.string.title_main);

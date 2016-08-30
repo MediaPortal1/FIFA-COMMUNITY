@@ -4,5 +4,8 @@
         <item
             android:id="@+id/menu_mainpage"
             android:title="@string/menu_title_main" />
+        <item
+            android:id="@+id/menu_videos"
+            android:title="@string/menu_title_videos" />
     </group>
 </menu>

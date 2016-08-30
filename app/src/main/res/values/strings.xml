@@ -4,6 +4,8 @@
     <!--SDK TOOLS-->
     <string name="facebook_app_id">1785019955104472</string>
     <integer name="com_vk_sdk_AppId">5605387</integer>
+    <item type="id" name="player_view"/>//YOUTUBE
+
 
     <!--NAVIGATION DRAWER-->
     <string name="drawer_open">Open navigation</string>
@@ -11,8 +13,10 @@
 
     <!--MENU TITLES-->
     <string name="menu_title_main">Main screen</string>
+    <string name="menu_title_videos">Videos</string>
 
     <!--Activity titles-->
     <string name="title_main">Main</string>
+    <string name="title_videos">Videos</string>
 
 </resources>

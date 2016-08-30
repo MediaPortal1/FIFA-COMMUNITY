@@ -28,5 +28,7 @@ dependencies {
     compile 'com.android.support:design:24.1.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
     compile project(':vksdk_library')
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }

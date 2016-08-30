@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-    <ImageView
-        android:id="@+id/navigation_header_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/sym_def_app_icon"
-        />
+    android:layout_height="@dimen/nav_header_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/header_background">
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:id="@+id/navigation_header_circleimageview"
+       android:layout_width="wrap_content"
+       android:layout_height="@dimen/nav_header_image_height"
+       android:layout_margin="@dimen/nav_header_margin_views"
+       app:civ_border_width="2dp"
+       app:civ_border_color="@android:color/white"
+       app:civ_border_overlay="true"
+       android:src="@drawable/ava_test"
+       />
     <TextView
         android:id="@+id/navigation_header_maintextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/navigation_header_imageview"
+        android:layout_above="@+id/navigation_header_subtextview"
+        android:layout_marginLeft="@dimen/nav_header_margin_views"
         android:text="TEST TEST TEST"
         />
 
@@ -22,8 +27,11 @@
         android:id="@+id/navigation_header_subtextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/navigation_header_maintextview"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/nav_header_margin_views"
+        android:layout_marginBottom="@dimen/nav_header_margin_views"
         android:text="TEST TEST TEST"
         android:textSize="12sp"
+
         />
 </RelativeLayout>

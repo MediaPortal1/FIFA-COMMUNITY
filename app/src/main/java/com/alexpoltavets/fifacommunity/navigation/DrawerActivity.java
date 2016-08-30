@@ -27,6 +27,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
 
     private int contentResId=-1;
     private int toolbarTitle=-1;
+    private String selectedMenuName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         setContentView(R.layout.navigation_activity);
         setContent();
         setToolbarTitle();
+        setSelectedMenuId();
         ViewStub viewStub=(ViewStub)findViewById(R.id.navigation_viestub);
         if(contentResId==-1){
             throw new IllegalStateException("Layout resource dont set");
@@ -69,6 +71,7 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         drawerLayout.addDrawerListener(toggle);
         navigationView = (NavigationView) findViewById(R.id.navigation_drawerview);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().getItem(MenuItems.valueOf(selectedMenuName).ordinal()).setChecked(true);
         if(toolbarTitle!=-1) setTitle(toolbarTitle);
     }
 
@@ -100,23 +103,31 @@ public abstract class DrawerActivity extends AppCompatActivity implements Naviga
         return false;
     }
 
+    @Override
+    public void onBackPressed() {
+        if(isDrawerOpen())closeDrawer();
+        else super.onBackPressed();
+    }
+
     private boolean isDrawerOpen(){return drawerLayout.isDrawerOpen(GravityCompat.START);}
 
     private void closeDrawer(){drawerLayout.closeDrawer(GravityCompat.START);}
 
     private void startActivityFromNavigation(@IdRes int classId){
         Intent intent=new Intent(this,MenuItems.getActivityClassbyId(classId));
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         closeDrawer();
         startActivity(intent);
     }
-
-    protected void setContentResId(int contentResId) {
+    protected final void setSelectedMenuId(String menuName){this.selectedMenuName=menuName;}
+    protected final void setContentResId(int contentResId) {
         this.contentResId = contentResId;
     }
-    protected void setTitleString(int title){
+    protected final void setTitleString(int title){
         this.toolbarTitle=title;
     }
     protected abstract void setContent();
     protected abstract void setToolbarTitle();
+    protected abstract void setSelectedMenuId();
     protected abstract void initViews();
 }

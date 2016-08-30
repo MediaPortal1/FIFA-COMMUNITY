@@ -23,11 +23,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="@string/facebook_app_id" />
+
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.LoginActivity">
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="@string/facebook_app_id" />
+        </activity>
+        <activity android:name=".videos.VideosActivity"/>
 
         <!--VK ACTIVITY-->
         <activity android:name="com.vk.sdk.VKServiceActivity" android:label="ServiceActivity" android:theme="@style/VK.Transparent" />

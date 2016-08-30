@@ -7,7 +7,8 @@ import com.alexpoltavets.fifacommunity.R;
 
 public enum MenuItems {
 
-    MAIN(R.id.menu_mainpage);
+    MAIN(R.id.menu_mainpage),
+    VIDEOS(R.id.menu_videos);
     //
 
     private final int menuId;
